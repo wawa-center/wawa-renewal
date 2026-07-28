@@ -134,6 +134,31 @@
   if (yr) yr.textContent = new Date().getFullYear();
 })();
 
+/* ---- 모바일 가로 카테고리 바 (햄버거 대체, 전 페이지 공통) ---- */
+(function () {
+  if (document.querySelector(".mobile-cat-bar")) return;
+  var header = document.querySelector(".site-header");
+  var links = document.querySelectorAll(".main-nav ul li a");
+  if (!header || !links.length) return;
+  var bar = document.createElement("nav");
+  bar.className = "mobile-cat-bar";
+  bar.setAttribute("aria-label", "카테고리");
+  var ul = document.createElement("ul");
+  links.forEach(function (a) {
+    var li = document.createElement("li");
+    var na = document.createElement("a");
+    na.href = a.getAttribute("href");
+    na.textContent = a.textContent.trim();
+    if (a.classList.contains("active")) na.classList.add("active");
+    li.appendChild(na);
+    ul.appendChild(li);
+  });
+  bar.appendChild(ul);
+  header.insertAdjacentElement("afterend", bar);
+  var act = bar.querySelector("a.active");
+  if (act && act.scrollIntoView) { try { act.scrollIntoView({ inline: "center", block: "nearest" }); } catch (e) {} }
+})();
+
 /* ---- 카톡 상담 플로팅 버튼 (전 페이지 공통) ---- */
 (function () {
   if (document.querySelector(".kakao-float")) return;
