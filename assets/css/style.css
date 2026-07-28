@@ -197,7 +197,7 @@ h1, h2, h3, h4 {
   background: var(--color-paper); border: 1.5px solid var(--color-line); border-radius: 10px;
   padding: 34px 30px; position: relative; transition: border-color .2s, transform .15s;
 }
-.card:hover { border-color: var(--color-ink); transform: translateY(-3px); }
+@media (hover: hover) { .card:hover { border-color: var(--color-ink); transform: translateY(-3px); } }
 .card .ic {
   width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
   font-size: 24px; background: transparent; border: 1.5px solid var(--color-ink); margin-bottom: 22px;
@@ -563,7 +563,7 @@ h1, h2, h3, h4 {
 .brand-region-title { font-size: 20px; margin: 0 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--color-border, #e5e5e5); }
 .brand-branch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
 .brand-branch-card { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border: 1px solid var(--color-border, #e5e5e5); border-radius: 12px; background: #fff; text-decoration: none; color: inherit; transition: box-shadow .15s, transform .15s, border-color .15s; }
-.brand-branch-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.08); transform: translateY(-2px); border-color: var(--color-primary, #2f6b4f); }
+@media (hover: hover) { .brand-branch-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.08); transform: translateY(-2px); border-color: var(--color-primary, #2f6b4f); } }
 .brand-branch-card .bb-name { font-weight: 700; font-size: 16px; }
 .brand-branch-card .bb-addr { font-size: 13px; color: var(--color-muted); line-height: 1.5; }
 .brand-branch-card .bb-more { font-size: 12px; font-weight: 600; color: var(--color-primary, #2f6b4f); margin-top: 2px; }
