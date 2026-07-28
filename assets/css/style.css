@@ -557,3 +557,14 @@ h1, h2, h3, h4 {
   .home-search-row { flex-direction: column; }
   .home-search-row .btn { width: 100%; }
 }
+
+/* ===== 브랜드별 지점 목록 페이지 ===== */
+.brand-region { margin-bottom: 40px; }
+.brand-region-title { font-size: 20px; margin: 0 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--color-border, #e5e5e5); }
+.brand-branch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.brand-branch-card { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px; border: 1px solid var(--color-border, #e5e5e5); border-radius: 12px; background: #fff; text-decoration: none; color: inherit; transition: box-shadow .15s, transform .15s, border-color .15s; }
+.brand-branch-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.08); transform: translateY(-2px); border-color: var(--color-primary, #2f6b4f); }
+.brand-branch-card .bb-name { font-weight: 700; font-size: 16px; }
+.brand-branch-card .bb-addr { font-size: 13px; color: var(--color-muted); line-height: 1.5; }
+.brand-branch-card .bb-more { font-size: 12px; font-weight: 600; color: var(--color-primary, #2f6b4f); margin-top: 2px; }
+@media (max-width: 600px) { .brand-branch-grid { grid-template-columns: 1fr 1fr; } }
