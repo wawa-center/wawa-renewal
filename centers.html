@@ -69,7 +69,7 @@
 
         <div class="center-finder reveal">
           <div class="center-search">
-            <input type="search" id="center-search" placeholder="검색 (예: 분당, 첨단초, 강남구)" aria-label="센터 검색" autocomplete="off" />
+            <input type="search" id="center-search" placeholder="검색 (예: 분당 불곡중, 신정동, 목일중학교, 강남구)" aria-label="센터 검색" autocomplete="off" />
           </div>
           <div class="center-regions" id="center-regions" aria-label="지역 필터"></div>
           <p class="center-count" id="center-count"></p>
@@ -191,18 +191,28 @@
         render();
       });
 
+      // 학교 정식명칭↔약칭 통일 + 소문자화 (검색어·데이터 양쪽에 적용)
+      function norm(s) {
+        return String(s == null ? "" : s).toLowerCase()
+          .replace(/여자중학교/g, "여중").replace(/여자고등학교/g, "여고").replace(/여자초등학교/g, "여초")
+          .replace(/초등학교/g, "초").replace(/중학교/g, "중").replace(/고등학교/g, "고")
+          .replace(/\s+/g, " ");
+      }
+
       searchEl.addEventListener("input", function () {
-        keyword = this.value.trim().toLowerCase();
+        keyword = this.value.trim();
         shown = PAGE;
         render();
       });
 
       function filtered() {
+        // 공백으로 분리한 모든 토큰이 다 들어있는 센터만 (지역+학교, 동+학교 등 조합 검색 지원)
+        var tokens = norm(keyword).split(" ").filter(Boolean);
         return DATA.filter(function (c) {
           if (activeRegion !== "전체" && c.region !== activeRegion) return false;
-          if (!keyword) return true;
-          var hay = (c.name + " " + c.region + " " + c.addr + " " + c.elem + " " + c.mid + " " + c.high).toLowerCase();
-          return hay.indexOf(keyword) >= 0;
+          if (!tokens.length) return true;
+          var hay = norm(c.name + " " + c.region + " " + c.addr + " " + (c.dong || "") + " " + c.elem + " " + c.mid + " " + c.high);
+          return tokens.every(function (t) { return hay.indexOf(t) >= 0; });
         });
       }
 
@@ -239,7 +249,7 @@
       var qm = /[?&]q=([^&]*)/.exec(location.search);
       if (qm) {
         var qv = decodeURIComponent(qm[1].replace(/\+/g, " "));
-        if (qv) { searchEl.value = qv; keyword = qv.trim().toLowerCase(); }
+        if (qv) { searchEl.value = qv; keyword = qv.trim(); }
       }
       render();
 
