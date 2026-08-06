@@ -21,6 +21,7 @@ window.WAWA_NEWS_POSTS = [
     category: "대학별 수시",
     title: "숭실대 수시전형 완전분석 — 교과우수자·SSU미래인재·논술 수시등급과 학종 이원화",
     date: "2026-08-04",
+    thumb: "assets/images/news/숭실대1.jpg",
     excerpt: "2027학년도 기준 교과우수자·SSU미래인재(면접형/서류형 이원화)·논술 전형과 컴퓨터·SW·AI·벤처중소기업 등 대표 학과를 정리했습니다.",
   },
   {
@@ -28,6 +29,7 @@ window.WAWA_NEWS_POSTS = [
     category: "대학별 수시",
     title: "경북대 수시전형 총정리 — 교과우수자·지역인재·논술(AAT) 수시등급과 의예 지역의사 신설",
     date: "2026-08-04",
+    thumb: "assets/images/news/경북대1.jpg",
     excerpt: "2027학년도 기준 교과우수자·지역인재·학생부종합·논술(AAT) 전형과 의예·치의예·수의예 대표 학과, 의예 지역의사 신설까지 정리했습니다.",
   },
   {
