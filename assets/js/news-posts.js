@@ -109,7 +109,7 @@ window.WAWA_NEWS_POSTS = [
     category: "와와 시스템",
     title: "와와학습코칭은 어떤 시스템으로 운영되는 학원일까요?",
     date: "2026-07-30",
-    thumb: "assets/images/class/상암점1.jpg",
+    thumb: "assets/images/class/상암점/상암점1.jpg",
     excerpt: "전국 205개 체인, 초·중·고 학년별 맞춤 운영 시스템(학습진단→플래닝→티칭·코칭→점검)과 내원상담 과정을 궁금한 학부모님께 정리했습니다.",
   },
   {
