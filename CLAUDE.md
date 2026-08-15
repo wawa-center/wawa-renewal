@@ -33,6 +33,7 @@
 - `assets/js/main.js` — 공통 JS(네비 토글, 스크롤 애니메이션, 상담폼 전송)
 - `assets/js/centers-data.js` — 센터 205개 데이터 배열 `window.WAWA_CENTERS` (centers.html이 이걸로 카드 렌더링)
 - `assets/images/` — 로고·사진·파비콘
+- `assets/images/class/{지점명}/` — **수업현황(지점) 사진은 지점별 폴더에 보관** (예: `assets/images/class/탄현점/탄현점1.jpeg`). 파일명은 자유(원본 그대로 OK). 새 지점 사진을 올릴 때는 `assets/images/class/{지점명}/` 폴더를 만들어 넣고, 글·`class-posts.js`에서 그 경로(`../assets/images/class/{지점명}/파일`)로 참조한다.
 - `sitemap.xml`, `robots.txt`, `favicon.png`, `favicon.ico`
 - `google-apps-script.gs` — 상담폼 백엔드(구글 Apps Script) **참고용 사본** (실제 실행본은 구글 계정 안에 있음)
 
