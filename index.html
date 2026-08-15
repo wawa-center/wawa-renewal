@@ -69,6 +69,7 @@
               <input id="home-q" type="search" name="q" placeholder="지역·학교명 검색 (예: 분당, 강남구, 첨단초)" aria-label="센터 검색" autocomplete="off" />
               <button type="submit" class="btn btn--primary">검색</button>
             </div>
+            <div id="home-results" class="home-results" hidden></div>
           </form>
           <div class="hero-actions">
             <a href="centers.html" class="btn btn--primary btn--lg">상담 신청</a>
@@ -264,6 +265,59 @@
     </div>
   </footer>
 
+  <script src="assets/js/centers-data.js"></script>
+  <script>
+    // 홈 검색창: 입력 즉시 유사 지점을 아래에 표시
+    (function () {
+      var input = document.getElementById("home-q");
+      var box = document.getElementById("home-results");
+      var form = input && input.closest("form");
+      var DATA = (window.WAWA_CENTERS || []);
+      if (!input || !box || !DATA.length) return;
+
+      function norm(s) {
+        return String(s == null ? "" : s).toLowerCase()
+          .replace(/여자중학교/g, "여중").replace(/여자고등학교/g, "여고").replace(/여자초등학교/g, "여초")
+          .replace(/초등학교/g, "초").replace(/중학교/g, "중").replace(/고등학교/g, "고")
+          .replace(/\s+/g, " ");
+      }
+      function esc(s) {
+        return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+        });
+      }
+
+      function run() {
+        var q = input.value.trim();
+        if (!q) { box.hidden = true; box.innerHTML = ""; return; }
+        var tokens = norm(q).split(" ").filter(Boolean);
+        var list = DATA.filter(function (c) {
+          var hay = norm(c.name + " " + c.region + " " + c.addr + " " + (c.dong || "") + " " + c.elem + " " + c.mid + " " + c.high);
+          return tokens.every(function (t) { return hay.indexOf(t) >= 0; });
+        });
+        var top = list.slice(0, 6);
+        var html = top.map(function (c) {
+          return '<a class="hsr-item" href="' + esc(c.page || "centers.html") + '">' +
+            '<span class="hsr-name">' + esc(c.name) + '</span>' +
+            '<span class="hsr-addr">' + esc(c.addr) + '</span></a>';
+        }).join("");
+        if (!list.length) {
+          html = '<div class="hsr-empty">일치하는 지점이 없어요. 다른 지역·학교명으로 검색해 보세요.</div>';
+        } else if (list.length > top.length) {
+          html += '<a class="hsr-more" href="centers.html?q=' + encodeURIComponent(q) + '">전체 ' + list.length + '개 센터 보기 →</a>';
+        }
+        box.innerHTML = html;
+        box.hidden = false;
+      }
+
+      input.addEventListener("input", run);
+      input.addEventListener("focus", run);
+      // 폼 제출(엔터/검색버튼)은 기존대로 centers.html?q= 로 이동
+      document.addEventListener("click", function (e) {
+        if (form && !form.contains(e.target)) { box.hidden = true; }
+      });
+    })();
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
