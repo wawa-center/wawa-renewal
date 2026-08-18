@@ -276,8 +276,7 @@
       var DATA = window.WAWA_COACHES || [];
       DATA.forEach(function (c) {
         ["subjects", "sido", "sigungu", "emdong", "grades", "schools"].forEach(function (k) {
-          if (typeof c[k] === "string") c[k] = c[k] ? [c[k]] : [];
-          else if (!c[k]) c[k] = [];
+          if (!Array.isArray(c[k])) c[k] = (typeof c[k] === "string" && c[k]) ? [c[k]] : [];
         });
       });
       var gridEl = document.getElementById("coach-grid");
