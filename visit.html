@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G8EBYGRP9K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G8EBYGRP9K');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <title>방문수업(방문·화상 과외) | 지역·과목별 코치 찾기 — 와와 학습코칭센터</title>
+  <meta name="description" content="전국 와와 방문수업·화상수업 코치를 지역·과목·학교로 찾아보세요. 영어·수학·국어·과학·사회 방문 과외와 화상 과외 선생님을 우리 동네에서 만나보세요." />
+  <link rel="canonical" href="https://wawaedu.kr/visit.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="와와 학습코칭센터" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:url" content="https://wawaedu.kr/visit.html" />
+  <meta property="og:title" content="방문수업(방문·화상 과외) | 코치 찾기 — 와와 학습코칭센터" />
+  <meta property="og:description" content="우리 동네 방문 과외·화상 과외 코치를 지역·과목별로 찾아보세요." />
+  <meta property="og:image" content="https://wawaedu.kr/assets/images/hero-coaching.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://wawaedu.kr/"},{"@type":"ListItem","position":2,"name":"방문수업","item":"https://wawaedu.kr/visit.html"}]}
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* ===== 방문수업 히어로 ===== */
+    .visit-hero { padding: 56px 0 40px; background: linear-gradient(180deg, var(--color-primary-light) 0%, var(--color-bg) 70%); }
+    .visit-hero .container { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+    .vh-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; font-family: var(--font-sans); color: var(--color-primary); background: #fff; border: 1px solid var(--color-line); padding: 7px 14px; border-radius: 999px; }
+    .vh-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--color-accent, #f47b20); }
+    .vh-left h1 { font-size: 42px; line-height: 1.2; margin: 18px 0 16px; }
+    .vh-left .lead { font-size: 16px; color: var(--color-muted); line-height: 1.7; margin-bottom: 22px; }
+    .vh-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+    .vh-chip { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 700; font-family: var(--font-sans); color: var(--color-ink); background: #fff; border: 1px solid var(--color-line); padding: 9px 15px; border-radius: 999px; }
+    .vh-actions { display: flex; gap: 12px; margin-bottom: 28px; }
+    .vh-search-lbl { display: block; font-size: 13px; font-weight: 800; font-family: var(--font-sans); color: var(--color-ink); margin-bottom: 8px; }
+    .vh-search-row { display: flex; gap: 8px; }
+    .vh-search-row input { flex: 1; padding: 15px 18px; font-size: 15px; font-family: var(--font-sans); border: 1.5px solid var(--color-line); border-radius: 999px; background: #fff; }
+    .vh-search-row input:focus { outline: none; border-color: var(--color-primary); }
+    .vh-search-row .btn { border-radius: 999px; flex: none; padding-left: 26px; padding-right: 26px; }
+    .vh-tags { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 14px; font-family: var(--font-sans); }
+    .vh-tags .lbl { font-size: 13px; color: var(--color-muted); font-weight: 600; }
+    .vh-tags a { font-size: 13px; font-weight: 700; color: var(--color-ink); text-decoration: none; }
+    .vh-tags a:hover { color: var(--color-primary); }
+
+    /* ===== 빠른 찾기 카드 ===== */
+    .qf-card { background: #fff; border: 1.5px solid var(--color-line); border-radius: 18px; padding: 28px 26px; box-shadow: 0 20px 50px rgba(0,0,0,.07); }
+    .qf-title { font-size: 20px; font-weight: 800; margin: 0 0 4px; }
+    .qf-sub { font-size: 13.5px; color: var(--color-muted); font-family: var(--font-sans); margin: 0 0 18px; }
+    .qf-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+    .qf-toggle button { padding: 13px; font-size: 15px; font-weight: 700; font-family: var(--font-sans); border: 1.5px solid var(--color-line); border-radius: 12px; background: #fff; color: var(--color-muted); cursor: pointer; transition: .15s; }
+    .qf-toggle button.active { border-color: var(--color-primary); background: var(--color-primary-light); color: var(--color-primary); }
+    .qf-field { margin-bottom: 14px; }
+    .qf-field > label { display: block; font-size: 13px; font-weight: 800; font-family: var(--font-sans); color: var(--color-ink); margin-bottom: 7px; }
+    .qf-field select { width: 100%; padding: 14px 16px; font-size: 15px; font-family: var(--font-sans); border: 1.5px solid var(--color-line); border-radius: 12px; background: #fff; color: var(--color-ink); appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+    .qf-field select:focus { outline: none; border-color: var(--color-primary); }
+    .qf-submit { width: 100%; margin-top: 6px; }
+    .qf-note { text-align: center; font-size: 12.5px; color: var(--color-muted); font-family: var(--font-sans); margin: 14px 0 0; }
+
+    /* ===== 선생님 그리드 ===== */
+    .teacher-filters { display: flex; flex-direction: column; gap: 12px; margin-bottom: 26px; }
+    .tf-line { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .tf-label { flex: none; font-size: 13px; font-weight: 800; color: var(--color-ink); font-family: var(--font-sans); width: 40px; }
+    .coach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .coach-card { background: var(--color-paper); border: 1.5px solid var(--color-line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 10px; cursor: pointer; transition: border-color .2s, transform .15s, box-shadow .2s; }
+    .coach-card:hover { border-color: var(--color-primary); transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.07); }
+    .cc-top { display: flex; align-items: center; gap: 12px; }
+    .cc-avatar { flex: none; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-size: 19px; font-weight: 800; color: #fff; font-family: var(--font-sans); }
+    .cc-top h3 { font-size: 18px; margin: 0; }
+    .cc-sub { font-size: 12.5px; color: var(--color-muted); font-family: var(--font-sans); margin: 2px 0 0; }
+    .cc-tagline { font-size: 14px; font-weight: 700; color: var(--color-primary); font-family: var(--font-sans); margin: 0; }
+    .cc-meta { font-size: 13px; color: var(--color-muted); font-family: var(--font-sans); line-height: 1.55; }
+    .cc-more { margin-top: auto; font-size: 13px; font-weight: 700; font-family: var(--font-sans); color: var(--color-ink); }
+    .coach-card:hover .cc-more { color: var(--color-primary); }
+
+    /* ===== 선생님 상세 모달 ===== */
+    .coach-modal { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 20px; }
+    .coach-modal[hidden] { display: none; }
+    .cm-bg { position: absolute; inset: 0; background: rgba(26,26,26,.55); }
+    .cm-box { position: relative; background: #fff; border-radius: 22px; max-width: 560px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 30px 30px 26px; box-shadow: 0 30px 70px rgba(0,0,0,.3); }
+    .cm-close { position: absolute; top: 18px; right: 18px; width: 34px; height: 34px; border-radius: 50%; border: none; background: var(--color-bg); color: var(--color-muted); font-size: 17px; cursor: pointer; }
+    .cm-close:hover { background: var(--color-line); }
+    .cm-head { display: flex; align-items: center; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--color-line); }
+    .cm-avatar { flex: none; width: 62px; height: 62px; border-radius: 16px; display: grid; place-items: center; font-size: 26px; font-weight: 800; color: #fff; font-family: var(--font-sans); }
+    .cm-name { font-size: 23px; margin: 0 0 4px; }
+    .cm-sub { font-size: 14px; color: var(--color-muted); font-family: var(--font-sans); margin: 0; }
+    .cm-section { padding-top: 20px; }
+    .cm-section h4 { font-size: 14px; font-weight: 800; color: var(--color-accent, #f47b20); font-family: var(--font-sans); margin: 0 0 10px; }
+    .cm-intro { font-size: 15px; line-height: 1.75; color: var(--color-ink); margin: 0; }
+    .cm-list { list-style: none; padding: 0; margin: 0; }
+    .cm-list li { display: flex; gap: 10px; padding: 11px 0; font-size: 14.5px; color: var(--color-ink); font-family: var(--font-sans); border-bottom: 1px dashed var(--color-line); }
+    .cm-list li:last-child { border-bottom: none; }
+    .cm-list li::before { content: "✓"; flex: none; color: var(--color-primary); font-weight: 800; }
+    .cm-cta { display: block; width: 100%; margin-top: 24px; text-align: center; }
+
+    @media (max-width: 900px) {
+      .visit-hero .container { grid-template-columns: 1fr; gap: 32px; }
+      .vh-left h1 { font-size: 34px; }
+      .coach-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 620px) {
+      .coach-grid { grid-template-columns: 1fr; }
+      .vh-actions { flex-direction: column; }
+      .tf-label { width: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="와와 학습코칭센터" class="logo-img" /></a>
+      <nav class="main-nav" aria-label="주요 메뉴">
+        <ul>
+          <li><a href="about.html">브랜드 소개</a></li>
+          <li><a href="centers.html">센터 찾기</a></li>
+          <li><a href="visit.html" class="active">방문수업</a></li>
+          <li><a href="news-status.html">입시뉴스</a></li>
+          <li><a href="class-status.html">수업현황</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="centers.html#apply" class="btn btn--primary">상담 신청</a>
+        <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 히어로 -->
+    <section class="visit-hero">
+      <div class="container">
+        <div class="vh-left reveal">
+          <span class="vh-badge">와와의 새로운 1:1 학습 서비스</span>
+          <h1>우리 동네 방문수업,<br /><span class="text-primary">와와가 연결</span>합니다</h1>
+          <p class="lead">센터가 멀어도, 더 밀착된 관리가 필요해도 괜찮습니다.<br />와와가 검증한 선생님이 우리 집으로, 화면으로 찾아갑니다.</p>
+          <div class="vh-chips">
+            <span class="vh-chip">🎯 1:1 밀착 수업</span>
+            <span class="vh-chip">✅ 와와가 검증한 선생님</span>
+            <span class="vh-chip">🏠 방문·화상 선택 가능</span>
+          </div>
+          <div class="vh-actions">
+            <a href="centers.html#apply" class="btn btn--primary btn--lg">무료 상담 신청</a>
+            <a href="#teacher-list" class="btn btn--ghost btn--lg" id="btn-browse">선생님 둘러보기</a>
+          </div>
+          <div>
+            <span class="vh-search-lbl">🔎 우리 동네 선생님 검색</span>
+            <div class="vh-search-row">
+              <input type="search" id="hero-search" placeholder="동네·학교·과목·선생님으로 검색 (예: 상계동 영어)" aria-label="선생님 검색" autocomplete="off" />
+              <button type="button" class="btn btn--primary" id="hero-search-btn">검색</button>
+            </div>
+            <div class="vh-tags">
+              <span class="lbl">인기 검색</span>
+              <a href="#teacher-list" data-tag="노원 수학">노원 수학</a>
+              <a href="#teacher-list" data-tag="분당 국어">분당 국어</a>
+              <a href="#teacher-list" data-tag="영어">영어</a>
+              <a href="#teacher-list" data-tag="초등">초등 전과목</a>
+              <a href="#teacher-list" data-tag="검정고시">검정고시</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="vh-right reveal">
+          <div class="qf-card">
+            <h3 class="qf-title">우리 아이 선생님 <span class="text-primary">빠른 찾기</span></h3>
+            <p class="qf-sub">지역·과목·학년만 고르면, 딱 맞는 선생님을 찾아 드려요.</p>
+            <div class="qf-toggle" id="qf-toggle">
+              <button type="button" data-type="방문" class="active">🏠 방문 수업</button>
+              <button type="button" data-type="화상">💻 화상 수업</button>
+            </div>
+            <div class="qf-field">
+              <label for="qf-region">지역</label>
+              <select id="qf-region"><option value="전체">전체 지역</option></select>
+            </div>
+            <div class="qf-field">
+              <label for="qf-subject">과목</label>
+              <select id="qf-subject"><option value="전체">전체 과목</option></select>
+            </div>
+            <div class="qf-field">
+              <label for="qf-grade">학년</label>
+              <select id="qf-grade">
+                <option value="전체">전체 학년</option>
+                <option value="초등">초등</option>
+                <option value="중등">중등</option>
+                <option value="고등">고등</option>
+                <option value="검정고시">검정고시</option>
+              </select>
+            </div>
+            <button type="button" class="btn btn--primary btn--lg qf-submit" id="qf-submit">맞춤 선생님 찾기</button>
+            <p class="qf-note">상담·매칭 비용은 무료입니다</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 선생님 목록 -->
+    <section class="section" id="teacher-list">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">TUTORS &amp; TEACHERS</span>
+          <h2>지역·과목·학년으로 찾는 <span class="text-primary">우리 아이 선생님</span></h2>
+          <p>카드를 누르면 선생님의 상세 소개와 수업 정보를 볼 수 있어요</p>
+        </div>
+
+        <div class="teacher-filters reveal">
+          <div class="tf-line"><span class="tf-label">유형</span><div class="center-regions" id="type-filter"></div></div>
+          <div class="tf-line"><span class="tf-label">과목</span><div class="center-regions" id="subject-filter"></div></div>
+          <div class="tf-line"><span class="tf-label">지역</span><div class="center-regions" id="region-filter"></div></div>
+        </div>
+        <p class="center-count" id="coach-count" style="margin-bottom:20px"></p>
+
+        <div class="coach-grid" id="coach-grid" aria-live="polite"></div>
+        <div class="center-empty" id="coach-empty" hidden>검색 결과가 없습니다. 다른 검색어나 필터를 선택해 보세요.</div>
+        <div style="text-align:center;margin-top:36px">
+          <button type="button" class="btn btn--ghost btn--lg" id="coach-more" hidden>더 보기</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container">
+        <div class="cta-band reveal">
+          <h2>방문·화상 과외, 무료 상담으로 시작하세요</h2>
+          <p>우리 아이 학습 상황을 알려주시면 맞는 코치를 추천해 드립니다</p>
+          <div class="hero-actions"><a href="centers.html#apply" class="btn btn--white btn--lg">무료 상담 신청</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 선생님 상세 모달 -->
+    <div class="coach-modal" id="coach-modal" hidden>
+      <div class="cm-bg" data-close></div>
+      <div class="cm-box" role="dialog" aria-modal="true" aria-labelledby="cm-name">
+        <button class="cm-close" data-close aria-label="닫기">✕</button>
+        <div class="cm-head">
+          <span class="cm-avatar" id="cm-avatar"></span>
+          <div><h3 class="cm-name" id="cm-name"></h3><p class="cm-sub" id="cm-sub"></p></div>
+        </div>
+        <div class="cm-section">
+          <h4>소개</h4>
+          <p class="cm-intro" id="cm-intro"></p>
+        </div>
+        <div class="cm-section">
+          <h4>수업 정보</h4>
+          <ul class="cm-list" id="cm-info"></ul>
+        </div>
+        <a class="btn btn--primary btn--lg cm-cta" href="centers.html#apply" id="cm-cta">이 선생님과 상담 신청</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">와와 학습코칭센터</a>
+          <p>10년 학습코칭 노하우로 완성한 자기주도학습 코칭.<br />우리 아이가 스스로 공부하는 힘을 키웁니다.</p>
+        </div>
+        <div class="footer-col"><h4>바로가기</h4><a href="about.html">브랜드 소개</a><a href="centers.html">센터 찾기</a><a href="visit.html">방문수업</a><a href="class-status.html">수업현황</a></div>
+        <div class="footer-col"><h4>고객지원</h4><a href="news.html">공지사항</a><a href="news.html">자주 묻는 질문</a><a href="centers.html#apply">상담 신청</a></div>
+        <div class="footer-col"><h4>브랜드</h4><a href="about.html">와와</a><a href="about.html">더블유플러스</a><a href="about.html">글로리드</a><a href="about.html">모두오름</a></div>
+      </div>
+      <div class="footer-bottom"><div>© <span data-year>2026</span> 와와 학습코칭센터. All rights reserved.</div></div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/coaches-data.js?v=2026081802"></script>
+  <script>
+    (function () {
+      var DATA = window.WAWA_COACHES || [];
+      DATA.forEach(function (c) {
+        ["subjects", "sido", "sigungu", "emdong", "grades", "schools"].forEach(function (k) {
+          if (typeof c[k] === "string") c[k] = c[k] ? [c[k]] : [];
+          else if (!c[k]) c[k] = [];
+        });
+      });
+      var gridEl = document.getElementById("coach-grid");
+      if (!gridEl || !DATA.length) return;
+
+      var PAGE = 30, shown = PAGE;
+      var fType = "전체", fSubject = "전체", fRegion = "전체", fGrade = "전체", keyword = "";
+
+      function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+      function shortSido(s) {
+        var map = { "서울특별시":"서울","부산광역시":"부산","대구광역시":"대구","인천광역시":"인천","광주광역시":"광주","대전광역시":"대전","울산광역시":"울산","세종특별자치시":"세종","경기도":"경기","강원특별자치도":"강원","강원도":"강원","충청북도":"충북","충청남도":"충남","전북특별자치도":"전북","전라북도":"전북","전라남도":"전남","경상북도":"경북","경상남도":"경남","제주특별자치도":"제주" };
+        return map[s] || s;
+      }
+      function coachSido(c) { var out = []; (c.sido || []).forEach(function (s) { var v = shortSido(s); if (v && out.indexOf(v) < 0) out.push(v); }); return out; }
+      function norm(s) { return String(s == null ? "" : s).toLowerCase().replace(/여자중학교/g,"여중").replace(/여자고등학교/g,"여고").replace(/초등학교/g,"초").replace(/중학교/g,"중").replace(/고등학교/g,"고").replace(/\s+/g," "); }
+      // 아바타 색 (이름 기반 고정)
+      var AV = ["#2e9e6b","#3a7bd5","#e8833a","#8e6fd1","#d1607a","#2fa8a0","#c7913a","#5a7bbd"];
+      function avatarColor(name) { var h = 0; for (var i=0;i<name.length;i++) h = name.charCodeAt(i) + ((h<<5)-h); return AV[Math.abs(h) % AV.length]; }
+      function gradesShort(c) { var g = c.grades || []; if (g.indexOf("초등")>=0 && g.indexOf("중등")>=0 && g.indexOf("고등")>=0) return "초·중·고"; return g.join("·"); }
+      function regionShort(c) { var ss = coachSido(c); if (!ss.length) return "전국(화상)"; var sg = (c.sigungu || []); return ss[0] + (sg.length ? " " + sg[0].split(" ")[0] : ""); }
+      function subtitle(c) {
+        var subj = (c.subjects || []).filter(function (s) { return s !== "기타"; }).slice(0, 3).join("·") || "전과목";
+        return subj + " · " + (gradesShort(c) || "전학년") + " · " + regionShort(c) + (((c.type||"").indexOf("화상")>=0 && (c.type||"").indexOf("방문")<0) ? " (화상 전문)" : "");
+      }
+
+      // ── 필터 버튼 ──
+      function makeBtn(label, val, active) { var b = document.createElement("button"); b.type = "button"; b.className = "region-btn" + (active ? " active" : ""); b.textContent = label; b.setAttribute("data-val", val); return b; }
+      var typeEl = document.getElementById("type-filter"), subjEl = document.getElementById("subject-filter"), regionEl = document.getElementById("region-filter");
+      var typeCounts = { "방문":0, "화상":0 };
+      DATA.forEach(function (c) { if ((c.type||"").indexOf("방문")>=0) typeCounts["방문"]++; if ((c.type||"").indexOf("화상")>=0) typeCounts["화상"]++; });
+      typeEl.appendChild(makeBtn("전체 " + DATA.length, "전체", true));
+      typeEl.appendChild(makeBtn("방문 " + typeCounts["방문"], "방문"));
+      typeEl.appendChild(makeBtn("화상 " + typeCounts["화상"], "화상"));
+      var subjOrder = ["영어","수학","국어","과학","사회"], subjCounts = {};
+      DATA.forEach(function (c) { (c.subjects||[]).forEach(function (s) { subjCounts[s] = (subjCounts[s]||0)+1; }); });
+      subjEl.appendChild(makeBtn("전체", "전체", true));
+      subjOrder.forEach(function (s) { if (subjCounts[s]) subjEl.appendChild(makeBtn(s + " " + subjCounts[s], s)); });
+      var regionCounts = {}, onlineOnly = 0;
+      DATA.forEach(function (c) { var ss = coachSido(c); if (!ss.length) onlineOnly++; ss.forEach(function (s) { regionCounts[s] = (regionCounts[s]||0)+1; }); });
+      var regionList = Object.keys(regionCounts).sort(function (a,b) { return regionCounts[b]-regionCounts[a]; });
+      regionEl.appendChild(makeBtn("전체", "전체", true));
+      regionList.forEach(function (r) { regionEl.appendChild(makeBtn(r + " " + regionCounts[r], r)); });
+      if (onlineOnly) regionEl.appendChild(makeBtn("화상(전국) " + onlineOnly, "화상전국"));
+
+      // 빠른찾기 드롭다운 채우기
+      var qfRegion = document.getElementById("qf-region"), qfSubject = document.getElementById("qf-subject");
+      regionList.forEach(function (r) { var o = document.createElement("option"); o.value = r; o.textContent = r + " (" + regionCounts[r] + ")"; qfRegion.appendChild(o); });
+      subjOrder.forEach(function (s) { if (subjCounts[s]) { var o = document.createElement("option"); o.value = s; o.textContent = s; qfSubject.appendChild(o); } });
+
+      // 필터 상태 → 버튼 하이라이트 동기화
+      function syncChips() {
+        [[typeEl, fType],[subjEl, fSubject],[regionEl, fRegion]].forEach(function (pair) {
+          Array.prototype.forEach.call(pair[0].children, function (b) { b.classList.toggle("active", b.getAttribute("data-val") === pair[1]); });
+        });
+      }
+      function bindFilter(container, setter) {
+        container.addEventListener("click", function (e) { var btn = e.target.closest(".region-btn"); if (!btn) return; setter(btn.getAttribute("data-val")); shown = PAGE; syncChips(); render(); });
+      }
+      bindFilter(typeEl, function (v){ fType=v; });
+      bindFilter(subjEl, function (v){ fSubject=v; });
+      bindFilter(regionEl, function (v){ fRegion=v; });
+
+      function filtered() {
+        var tokens = norm(keyword).split(" ").filter(Boolean);
+        return DATA.filter(function (c) {
+          if (fType !== "전체" && (c.type||"").indexOf(fType) < 0) return false;
+          if (fSubject !== "전체" && (c.subjects||[]).indexOf(fSubject) < 0) return false;
+          if (fGrade !== "전체" && (c.grades||[]).indexOf(fGrade) < 0) return false;
+          if (fRegion !== "전체") { var ss = coachSido(c); if (fRegion === "화상전국") { if (ss.length) return false; } else if (ss.indexOf(fRegion) < 0) return false; }
+          if (tokens.length) {
+            var hay = norm((c.name||"") + " " + (c.sido||[]).join(" ") + " " + (c.sigungu||[]).join(" ") + " " + (c.emdong||[]).join(" ") + " " + (c.schools||[]).join(" ") + " " + (c.subjects||[]).join(" ") + " " + (c.grades||[]).join(" ") + " " + (c.intro||""));
+            if (!tokens.every(function (t) { return hay.indexOf(t) >= 0; })) return false;
+          }
+          return true;
+        });
+      }
+
+      function cardHtml(c, idx) {
+        var color = avatarColor(c.name || "");
+        return '<article class="coach-card" data-idx="' + idx + '">' +
+          '<div class="cc-top"><span class="cc-avatar" style="background:' + color + '">' + esc((c.name||"?").charAt(0)) + '</span>' +
+            '<div><h3>' + esc(c.name||"") + ' 쌤</h3><p class="cc-sub">' + esc(subtitle(c)) + '</p></div></div>' +
+          (c.tagline ? '<p class="cc-tagline">' + esc(c.tagline) + '</p>' : "") +
+          '<p class="cc-meta">📍 ' + esc(regionShort(c)) + (gradesShort(c) ? ' · 🎓 ' + esc(gradesShort(c)) : "") + '</p>' +
+          '<span class="cc-more">자세히 보기 →</span>' +
+        "</article>";
+      }
+
+      var lastList = [];
+      function render() {
+        var list = filtered(); lastList = list;
+        document.getElementById("coach-count").textContent = "총 " + list.length + "명의 선생님";
+        gridEl.innerHTML = list.slice(0, shown).map(cardHtml).join("");
+        document.getElementById("coach-empty").hidden = list.length !== 0;
+        document.getElementById("coach-more").hidden = list.length <= shown;
+      }
+      document.getElementById("coach-more").addEventListener("click", function () { shown += PAGE; render(); });
+
+      // ── 상세 모달 ──
+      var modal = document.getElementById("coach-modal");
+      function infoList(c) {
+        var items = [];
+        var t = c.type || "";
+        if (t.indexOf("방문")>=0 && t.indexOf("화상")>=0) items.push("방문 수업과 화상 수업 모두 가능");
+        else if (t.indexOf("화상")>=0) items.push("화상 수업 전문 (전국 가능)");
+        else items.push("방문 수업 진행");
+        if ((c.subjects||[]).length) items.push("가능 과목: " + c.subjects.join("·"));
+        if ((c.grades||[]).length) items.push("수업 가능 학년: " + c.grades.join("·"));
+        if ((c.sigungu||[]).length) items.push("방문 가능 지역: " + coachSido(c).join("·") + " " + c.sigungu.slice(0,4).join("·"));
+        if ((c.schools||[]).length) items.push("지도 경험 학교: " + c.schools.slice(0,6).join("·") + (c.schools.length>6 ? " 등" : ""));
+        return items;
+      }
+      function openModal(c) {
+        var color = avatarColor(c.name || "");
+        var av = document.getElementById("cm-avatar"); av.textContent = (c.name||"?").charAt(0); av.style.background = color;
+        document.getElementById("cm-name").textContent = (c.name||"") + " 쌤";
+        document.getElementById("cm-sub").textContent = subtitle(c);
+        document.getElementById("cm-intro").textContent = c.intro || "";
+        document.getElementById("cm-info").innerHTML = infoList(c).map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("");
+        modal.hidden = false; document.body.style.overflow = "hidden";
+      }
+      function closeModal() { modal.hidden = true; document.body.style.overflow = ""; }
+      gridEl.addEventListener("click", function (e) { var card = e.target.closest(".coach-card"); if (!card) return; var c = lastList[parseInt(card.getAttribute("data-idx"),10)]; if (c) openModal(c); });
+      modal.addEventListener("click", function (e) { if (e.target.hasAttribute("data-close")) closeModal(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !modal.hidden) closeModal(); });
+
+      // ── 히어로 검색 / 빠른찾기 ──
+      function goList() { document.getElementById("teacher-list").scrollIntoView({ behavior: "smooth" }); }
+      var heroSearch = document.getElementById("hero-search");
+      function doHeroSearch() { keyword = heroSearch.value.trim(); shown = PAGE; render(); goList(); }
+      document.getElementById("hero-search-btn").addEventListener("click", doHeroSearch);
+      heroSearch.addEventListener("keydown", function (e) { if (e.key === "Enter") doHeroSearch(); });
+      Array.prototype.forEach.call(document.querySelectorAll(".vh-tags a"), function (a) {
+        a.addEventListener("click", function () { keyword = a.getAttribute("data-tag"); heroSearch.value = keyword; shown = PAGE; render(); });
+      });
+      // 빠른찾기
+      var qfType = "방문";
+      document.getElementById("qf-toggle").addEventListener("click", function (e) {
+        var b = e.target.closest("button"); if (!b) return; qfType = b.getAttribute("data-type");
+        Array.prototype.forEach.call(this.children, function (x) { x.classList.toggle("active", x === b); });
+      });
+      document.getElementById("qf-submit").addEventListener("click", function () {
+        fType = qfType;
+        fRegion = document.getElementById("qf-region").value;
+        fSubject = document.getElementById("qf-subject").value;
+        fGrade = document.getElementById("qf-grade").value;
+        keyword = ""; heroSearch.value = "";
+        shown = PAGE; syncChips(); render(); goList();
+      });
+
+      // 홈/외부 ?q= 반영
+      var qm = /[?&]q=([^&]*)/.exec(location.search);
+      if (qm) { var qv = decodeURIComponent(qm[1].replace(/\+/g, " ")); if (qv) { keyword = qv.trim(); heroSearch.value = keyword; } }
+      render();
+    })();
+  </script>
+</body>
+</html>
