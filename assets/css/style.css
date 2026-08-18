@@ -456,7 +456,8 @@ h1, h2, h3, h4 {
 .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .guide-card { display: flex; flex-direction: column; background: var(--color-paper); border: 1.5px solid var(--color-line); border-radius: 10px; overflow: hidden; transition: border-color .2s, transform .15s; }
 .guide-card:hover { border-color: var(--color-ink); transform: translateY(-3px); }
-.guide-card .thumb { aspect-ratio: 16/9; background: var(--color-primary-light); display: grid; place-items: center; font-size: 44px; }
+.guide-card .thumb { position: relative; aspect-ratio: 16/9; overflow: hidden; background: var(--color-primary-light); display: grid; place-items: center; font-size: 44px; }
+.guide-card .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .guide-card .body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
 .guide-card .cat { font-family: var(--font-sans); font-size: 12px; font-weight: 800; letter-spacing: .08em; color: var(--color-primary); margin-bottom: 10px; }
 .guide-card h3 { font-size: 19px; line-height: 1.4; margin-bottom: 10px; }
