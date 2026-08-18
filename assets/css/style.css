@@ -511,8 +511,15 @@ h1, h2, h3, h4 {
   .loc-detail-actions .btn { flex: 1 1 0; min-width: 120px; }
 }
 @media (max-width: 640px) {
-  .section { padding: 68px 0; }
+  .section { padding: 56px 0; }
   .container { padding: 0 20px; }
+  /* 히어로 모바일 다듬기 */
+  .hero { padding: 34px 0 52px; }
+  .hero h1 { font-size: clamp(31px, 8.4vw, 44px); line-height: 1.18; margin-bottom: 18px; }
+  .hero p.lead { font-size: 16px; line-height: 1.7; margin-bottom: 24px; }
+  .hero p.lead br { display: none; }
+  .hero-text .home-search { margin: 0 0 20px; }
+  .hero-meta, .hero-stats { margin-top: 32px; }
   .grid-2, .grid-3, .grid-4, .process, .statband, .branch-grid, .form-grid2, .center-grid { grid-template-columns: 1fr; }
   .grid-3, .grid-4 { border-left: 0; }
   .grid-3 > .card, .grid-4 > .card { border-right: 0; }
