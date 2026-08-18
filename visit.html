@@ -92,7 +92,9 @@
     .cm-sub { font-size: 14px; color: var(--color-muted); font-family: var(--font-sans); margin: 0; }
     .cm-section { padding-top: 20px; }
     .cm-section h4 { font-size: 14px; font-weight: 800; color: var(--color-accent, #f47b20); font-family: var(--font-sans); margin: 0 0 10px; }
-    .cm-intro { font-size: 15px; line-height: 1.75; color: var(--color-ink); margin: 0; }
+    .cm-intro { font-size: 15px; line-height: 1.8; color: var(--color-ink); margin: 0; }
+    .cm-intro p { margin: 0 0 12px; }
+    .cm-intro p:last-child { margin-bottom: 0; }
     .cm-list { list-style: none; padding: 0; margin: 0; }
     .cm-list li { display: flex; gap: 10px; padding: 11px 0; font-size: 14.5px; color: var(--color-ink); font-family: var(--font-sans); border-bottom: 1px dashed var(--color-line); }
     .cm-list li:last-child { border-bottom: none; }
@@ -286,6 +288,13 @@
       var fType = "전체", fSubject = "전체", fRegion = "전체", fGrade = "전체", keyword = "";
 
       function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+      // 소개글을 문장 단위 문단으로 (가독성)
+      function splitIntro(text) {
+        var t = String(text == null ? "" : text);
+        var sents = t.replace(/([.!?])\s+/g, "$1\n").split("\n").filter(function (s) { return s.trim(); });
+        if (!sents.length) return "";
+        return sents.map(function (s) { return "<p>" + esc(s.trim()) + "</p>"; }).join("");
+      }
       function shortSido(s) {
         var map = { "서울특별시":"서울","부산광역시":"부산","대구광역시":"대구","인천광역시":"인천","광주광역시":"광주","대전광역시":"대전","울산광역시":"울산","세종특별자치시":"세종","경기도":"경기","강원특별자치도":"강원","강원도":"강원","충청북도":"충북","충청남도":"충남","전북특별자치도":"전북","전라북도":"전북","전라남도":"전남","경상북도":"경북","경상남도":"경남","제주특별자치도":"제주" };
         return map[s] || s;
@@ -394,7 +403,7 @@
         var av = document.getElementById("cm-avatar"); av.textContent = (c.name||"?").charAt(0); av.style.background = color;
         document.getElementById("cm-name").textContent = (c.name||"") + " 쌤";
         document.getElementById("cm-sub").textContent = subtitle(c);
-        document.getElementById("cm-intro").textContent = c.intro || "";
+        document.getElementById("cm-intro").innerHTML = splitIntro(c.intro);
         document.getElementById("cm-info").innerHTML = infoList(c).map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("");
         modal.hidden = false; document.body.style.overflow = "hidden";
       }
