@@ -415,11 +415,12 @@
       // ── 히어로 검색 / 빠른찾기 ──
       function goList() { document.getElementById("teacher-list").scrollIntoView({ behavior: "smooth" }); }
       var heroSearch = document.getElementById("hero-search");
-      function doHeroSearch() { keyword = heroSearch.value.trim(); shown = PAGE; render(); goList(); }
+      function resetFilters() { fType = "전체"; fSubject = "전체"; fRegion = "전체"; fGrade = "전체"; }
+      function doHeroSearch() { resetFilters(); keyword = heroSearch.value.trim(); shown = PAGE; syncChips(); render(); goList(); }
       document.getElementById("hero-search-btn").addEventListener("click", doHeroSearch);
       heroSearch.addEventListener("keydown", function (e) { if (e.key === "Enter") doHeroSearch(); });
       Array.prototype.forEach.call(document.querySelectorAll(".vh-tags a"), function (a) {
-        a.addEventListener("click", function () { keyword = a.getAttribute("data-tag"); heroSearch.value = keyword; shown = PAGE; render(); });
+        a.addEventListener("click", function () { resetFilters(); keyword = a.getAttribute("data-tag"); heroSearch.value = keyword; shown = PAGE; syncChips(); render(); });
       });
       // 빠른찾기
       var qfType = "방문";
