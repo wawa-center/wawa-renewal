@@ -252,6 +252,7 @@
           <ul class="cm-list" id="cm-info"></ul>
         </div>
         <a class="btn btn--primary btn--lg cm-cta" href="centers.html#apply" id="cm-cta">이 선생님과 상담 신청</a>
+        <a class="cm-pagelink" id="cm-page" href="#" style="display:block;text-align:center;margin-top:14px;font-weight:700;color:var(--color-primary);text-decoration:none">이 선생님 상세 페이지 전체 보기 →</a>
       </div>
     </div>
   </main>
@@ -405,6 +406,7 @@
         document.getElementById("cm-sub").textContent = subtitle(c);
         document.getElementById("cm-intro").innerHTML = splitIntro(c.intro);
         document.getElementById("cm-info").innerHTML = infoList(c).map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("");
+        document.getElementById("cm-page").href = "t/" + encodeURIComponent(c.id) + ".html";
         modal.hidden = false; document.body.style.overflow = "hidden";
       }
       function closeModal() { modal.hidden = true; document.body.style.overflow = ""; }
