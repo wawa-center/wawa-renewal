@@ -1,41 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@400;500;600;700;800;900&display=swap');
 /* =========================================================
-   와와 학습코칭센터 — 리뉴얼 (HJ Project)
-   디자인 방향: 에디토리얼 · 아카데믹
-   잉크 블랙 × 크림 × 딥그린 / 세리프 디스플레이 / 선(rule) 기반
+   와와 학습코칭센터 — 리뉴얼 (Toss-inspired, 2026-08)
+   화이트 배경 × 주황 브랜드 × 부드러운 라운드/그림자 × Pretendard
    ========================================================= */
 
 /* ---------- Design tokens ---------- */
 :root {
-  /* 색상 — 기존 변수명 유지(호환), 값만 에디토리얼로 교체 */
-  --color-primary: #1f4d3a;        /* deep green (포인트) */
-  --color-primary-dark: #163a2b;
-  --color-primary-light: #e7ede9;  /* green tint */
-  --color-accent: #b4532a;         /* rust (보조 포인트) */
-  --color-accent-light: #f4e6dd;
+  /* 색상 — 토스풍: 화이트 배경 × 주황 브랜드 × 소프트 뉴트럴 */
+  --color-primary: #F5731A;        /* 브랜드 주황 (로고와 통일) */
+  --color-primary-dark: #E0620C;
+  --color-primary-light: #FFF1E4;  /* 주황 틴트 */
+  --color-accent: #E0620C;         /* 보조 포인트(딥 오렌지) */
+  --color-accent-light: #FFF3E9;
 
-  --color-ink: #1a1a1a;            /* 거의 검정 */
-  --color-text: #3d3a34;
-  --color-muted: #8a8578;
-  --color-line: #ddd4c2;           /* 따뜻한 회선 */
-  --color-rule: #1a1a1a;           /* 강한 구분선 */
-  --color-bg: #f7f3ea;             /* 크림 페이퍼 */
-  --color-bg-soft: #efe8d8;        /* 진한 크림 */
-  --color-paper: #fffdf7;          /* 카드/표면 */
-  --color-bg-dark: #1a1a1a;        /* 잉크 섹션 */
+  --color-ink: #17171C;            /* 거의 검정 */
+  --color-text: #3A3D44;
+  --color-muted: #7C808A;
+  --color-line: #ECEDF0;           /* 옅은 뉴트럴 라인 */
+  --color-rule: #E6E8EC;           /* 부드러운 구분선 */
+  --color-bg: #FFFFFF;             /* 화이트 */
+  --color-bg-soft: #F6F7F9;        /* 옅은 회색 섹션 */
+  --color-paper: #FFFFFF;          /* 카드/표면 */
+  --color-bg-dark: #17171C;        /* 다크 섹션 */
 
-  --radius-sm: 3px;
-  --radius: 4px;
-  --radius-lg: 6px;
-  --shadow-sm: none;
-  --shadow: none;
-  --shadow-lg: none;
-  --shadow-hard: 6px 6px 0 var(--color-ink);  /* 인쇄 느낌 하드 섀도 */
+  --radius-sm: 12px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 4px 14px rgba(23,23,28,.06);
+  --shadow: 0 12px 34px rgba(23,23,28,.09);
+  --shadow-lg: 0 20px 50px rgba(23,23,28,.12);
+  --shadow-hard: 0 12px 30px rgba(23,23,28,.10);  /* 하드섀도 → 소프트로 대체 */
 
   --maxw: 1160px;
   --header-h: 96px;
   --font-sans: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, -apple-system, sans-serif;
-  --font-serif: "Hahmlet", "Nanum Myeongjo", Georgia, "Apple SD Gothic Neo", serif;
+  --font-serif: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, -apple-system, sans-serif;
   --font: var(--font-sans);
 }
 
@@ -617,4 +615,63 @@ h1, h2, h3, h4 {
   .site-header .header-cta .btn { padding: 9px 17px; font-size: 14px; border-radius: 999px; }
   :root { --header-h: 80px; }
   .logo-img { height: 58px; }
+}
+
+/* =========================================================
+   TOSS-STYLE OVERLAY — 부드러운 라운드 / 소프트 섀도 / 주황 (2026-08-25)
+   ※ 되돌리려면 이 블록 + :root 토큰만 원복하면 됨
+   ========================================================= */
+
+/* 헤더: 반투명 흰 바 + 옅은 라인 (기존 크림 배경 덮기) */
+.site-header { background: rgba(255,255,255,.82) !important; border-bottom: 1px solid var(--color-line); }
+.hero, .page-hero { border-bottom: 1px solid var(--color-line); }
+
+/* eyebrow / 히어로 kicker: 두꺼운 검은 상단선 제거, 주황 라벨로 */
+.section-head .eyebrow, .hero-kicker, .hero-badge { border-top: 0; padding-top: 0; }
+.split-body .eyebrow { border-top: 0 !important; padding-top: 0 !important; }
+
+/* 버튼: 라운드 + 그라데이션 + 소프트 섀도 + 호버 리프트 */
+.btn { border-radius: 14px; font-weight: 700; }
+.btn--lg { border-radius: 16px; }
+.btn--primary { background: linear-gradient(135deg,#FF9A3D,#F5731A); border-color: transparent; box-shadow: 0 8px 20px rgba(245,115,26,.28); }
+.btn--primary:hover { background: linear-gradient(135deg,#FF8A24,#EA660F); border-color: transparent; transform: translateY(-2px); box-shadow: 0 12px 26px rgba(245,115,26,.36); }
+
+/* 카드/표면: 큰 라운드 */
+.card, .center-card, .guide-card, .quiz-opt, .quiz-result .trait, .form-card,
+.brand-branch-card, .home-results, .article .cta-inline, .map-modal-box,
+.legal .note { border-radius: 20px; }
+
+/* 카드류: 소프트 섀도 + 호버 리프트 */
+.card, .center-card, .guide-card { box-shadow: var(--shadow-sm); border-color: var(--color-line); }
+@media (hover: hover) {
+  .card:hover, .center-card:hover, .guide-card:hover {
+    border-color: var(--color-line); box-shadow: var(--shadow); transform: translateY(-4px);
+  }
+}
+
+/* 피처 카드 아이콘: 검은테 원 → 소프트 주황 스퀘어클 */
+.card .ic {
+  width: 62px; height: 62px; border: 0; border-radius: 18px;
+  background: var(--color-primary-light); color: var(--color-primary); font-size: 28px;
+}
+.card .ic img { width: 42px; height: 42px; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,.12)); }
+.card .ic.t-o { background: #FFF1E4; } .card .ic.t-b { background: #E8F1FF; }
+.card .ic.t-g { background: #E6F7EE; } .card .ic.t-p { background: #F1ECFF; }
+
+/* 히어로 프레임 / split 미디어: 검은테+하드섀도 → 라운드+소프트 */
+.hero-frame { border: 1px solid var(--color-line); box-shadow: var(--shadow); border-radius: 24px; padding: 10px; background: #fff; }
+.hero-frame-img { border-radius: 16px; border: 0; }
+.split-media { border: 1px solid var(--color-line); box-shadow: var(--shadow); border-radius: 24px; }
+.form-card { border: 1px solid var(--color-line); box-shadow: var(--shadow); }
+
+/* 센터 로케이터: 라운드 + 소프트 */
+.locator { border: 1px solid var(--color-line); border-radius: 20px; box-shadow: var(--shadow-sm); overflow: hidden; }
+
+/* 페이지 히어로: 아주 옅은 주황 그라데이션 */
+.page-hero { background: linear-gradient(180deg, var(--color-primary-light) 0%, var(--color-bg) 80%); }
+
+/* 모바일 카테고리 바: 흰 배경 + 주황 액티브 그림자 */
+@media (max-width: 860px) {
+  .mobile-cat-bar { background: rgba(255,255,255,.94) !important; border-bottom: 1px solid var(--color-line); }
+  .mobile-cat-bar a.active { box-shadow: 0 3px 10px rgba(245,115,26,.28) !important; }
 }
