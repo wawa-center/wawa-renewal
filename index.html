@@ -345,5 +345,42 @@
     })();
   </script>
   <script src="assets/js/main.js"></script>
+  <!-- 히어로 지표 카운트업(1→목표) -->
+  <script>
+    (function () {
+      var nums = document.querySelectorAll(".hero-meta .m-num");
+      if (!nums.length) return;
+      var targets = [];
+      nums.forEach(function (el) {
+        targets.push(parseInt(String(el.textContent).replace(/[^0-9]/g, ""), 10) || 0);
+        el.textContent = "1";
+      });
+      var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var done = false;
+      function run() {
+        if (done) return; done = true;
+        if (reduce) { nums.forEach(function (el, i) { el.textContent = targets[i]; }); return; }
+        var dur = 1400, t0 = null;
+        function step(ts) {
+          if (t0 === null) t0 = ts;
+          var p = Math.min((ts - t0) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+          nums.forEach(function (el, i) {
+            el.textContent = Math.max(1, Math.round(1 + (targets[i] - 1) * eased));
+          });
+          if (p < 1) requestAnimationFrame(step);
+          else nums.forEach(function (el, i) { el.textContent = targets[i]; });
+        }
+        requestAnimationFrame(step);
+      }
+      var meta = document.querySelector(".hero-meta");
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { run(); io.disconnect(); } });
+        }, { threshold: 0.4 });
+        io.observe(meta);
+      } else { run(); }
+    })();
+  </script>
 </body>
 </html>
