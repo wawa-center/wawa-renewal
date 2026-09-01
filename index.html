@@ -35,8 +35,40 @@
   </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
   <link rel="stylesheet" href="assets/css/style.css?v=2026082405" />
+  <style>
+    /* ===== 홈 전용: 풀블리드 히어로 + 스크롤 헤더 (흰→주황) ===== */
+    .home .site-header { position: fixed; left: 0; right: 0; top: 0; width: 100%;
+      background: transparent !important; border-bottom: 0 !important; box-shadow: none;
+      transition: background .3s ease, box-shadow .3s ease, border-color .3s ease; }
+    .home .site-header.scrolled { background: rgba(255,255,255,.94) !important;
+      border-bottom: 1px solid var(--color-line) !important; box-shadow: 0 6px 24px rgba(23,23,28,.07);
+      backdrop-filter: saturate(160%) blur(10px); }
+    /* 맨 위 상태: 흰 로고·흰 메뉴 */
+    .home .site-header:not(.scrolled) .logo-img { filter: brightness(0) invert(1); }
+    .home .site-header:not(.scrolled) .main-nav a { color: #fff; }
+    .home .site-header:not(.scrolled) .main-nav a::after { background: #fff; }
+    .home .site-header:not(.scrolled) .nav-toggle span { background: #fff; }
+    /* 히어로: 풀블리드 사진 + 어두운 그라데이션 오버레이 */
+    .home .hero { position: relative; min-height: 640px; display: flex; align-items: center;
+      border-bottom: 0 !important; padding: calc(var(--header-h) + 44px) 0 72px;
+      background: linear-gradient(100deg, rgba(20,18,16,.66) 0%, rgba(20,18,16,.45) 46%, rgba(20,18,16,.28) 100%),
+        url("assets/images/hero-coaching.png?v=2026082801") center/cover no-repeat; }
+    .home .hero-grid { grid-template-columns: 1fr !important; }
+    .home .hero-side { display: none !important; }
+    .home .hero-text { max-width: 640px; }
+    /* 히어로 텍스트 흰색 */
+    .home .hero .hero-kicker { color: #fff; opacity: .95; }
+    .home .hero h1 { color: #fff; }
+    .home .hero h1 .text-primary { color: #FFB877; }
+    .home .hero p.lead { color: rgba(255,255,255,.92); }
+    .home .hero .home-search-lbl { color: #fff; }
+    .home .hero-meta { border-top-color: rgba(255,255,255,.3); }
+    .home .hero-meta .m-num { color: #fff; }
+    .home .hero-meta .m-lbl { color: rgba(255,255,255,.8); }
+    @media (max-width: 640px) { .home .hero { min-height: 520px; padding-top: calc(var(--header-h) + 20px); } }
+  </style>
 </head>
-<body>
+<body class="home">
 
   <!-- HEADER -->
   <header class="site-header">
@@ -382,6 +414,17 @@
         }, { threshold: 0.4 });
         io.observe(meta);
       } else { run(); }
+    })();
+  </script>
+  <!-- 스크롤 시 헤더 흰바+주황로고로 전환 -->
+  <script>
+    (function () {
+      if (!document.body.classList.contains("home")) return;
+      var h = document.querySelector(".site-header");
+      if (!h) return;
+      function onScroll() { if (window.scrollY > 60) h.classList.add("scrolled"); else h.classList.remove("scrolled"); }
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
     })();
   </script>
 </body>
